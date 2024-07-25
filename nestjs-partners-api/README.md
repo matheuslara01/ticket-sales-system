@@ -1,73 +1,93 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+# Application of partners for product testing
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+This repository contains partner applications that will be used for testing. This application uses the concept of NestJS libraries, where we have a core with the main functions that can be reused. In this case, we created two partners that reuse this core.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+# Required Technologies
 
-## Description
+ - ![Docker](https://img.shields.io/badge/Docker-blue)
+ - ![Nest.ja](https://img.shields.io/badge/Nest.js-red)
+ - ![Prisma ORM](https://img.shields.io/badge/Prisma-blue)
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+# Project structure
 
-## Installation
+This project consists of two central modules:
 
-```bash
-$ npm install
-```
+**1. apps:** Contains APIs for partners, specifically designed for testing purposes.
+**2. libs:** Provides a reusable library intended for use by all partner APIs.
 
-## Running the app
+```plaintext
 
-```bash
-# development
-$ npm run start
+├── nestjs-partners-api
+|   └── apps
+|       ├── partner1
+|       └── partner2
+|   └── libs
+|       └── core
 
-# watch mode
-$ npm run start:dev
+````
 
-# production mode
-$ npm run start:prod
-```
+# Funcionalities
 
-## Test
+### Event Management
 
-```bash
-# unit tests
-$ npm run test
+  - **Event Creation**: Allows you to create new events with detailed information.
+  - **Event Update**: Facilitates the editing of existing events.
+  - **Event Deletion**: Removes events that are no longer necessary.
+  - **Event List**: Displays all registered events.
+    
+### Spot Management
+  - **Registration of Spot**: Allows you to register new places where events will be held.
+  - **Spot Editing**: Makes it easier to update place information.
+  - **Spot Removal**: Excludes seats that will no longer be used.
+  - **List of Spots**: Displays all registered places.
 
-# e2e tests
-$ npm run test:e2e
+### Reservations
+  - **Reservation Creation**: Allows users to make reservations for events.
 
-# test coverage
-$ npm run test:cov
-```
+### Access via Token
+  - **Authorization**: Controls access to specific resources based on defined permissions.
+  - **Route Protection**: Ensures that only authenticated users access certain routes.
 
-## Support
+The two partner APIs created here are designed to simulate ticket searching, providing a realistic experience for testing.
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
 
-## Stay in touch
+## Running the Project
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+This project is configured to run using Docker and Dev Containers. Choose the best option to run the development environment.
 
-## License
+### Using Docker
 
-Nest is [MIT licensed](LICENSE).
+1. **Run with docker:**
+   ```sh
+     docker compose up 
+   ```
+### Using Dev Containers
+
+1. **Open the project in Visual Studio Code.**
+2. **Reopen the project in the Dev Container:**
+ - Press `F1` and select `Dev Containers: Reopen in Container`.
+
+## Commands
+
+Here are the main commands to manage the project:
+
+- **Run migrations with Prisma:**
+   ```sh
+      npm run migrate:partner1
+      npm run migrate:partner2
+   ```
+
+- **Start the partner1 application:**
+    ```sh
+      npm run start:dev
+    ```
+
+- **Start the partner1 application:**
+    ```sh
+      npm run start:dev -- partner2
+    ```
+
+## Credits
+
+This project was created based on Full Cycle immersion
+
