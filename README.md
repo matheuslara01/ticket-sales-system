@@ -39,6 +39,19 @@ graph LR;
 
 ```
 
+```mermaid
+
+graph LR
+    A[User] -->|open/checkout<br>click the pay button| B[Frontend]
+    B -->|http| C[Golang]
+    C -->|http| D[Nest.js]
+    
+    B -->|Returns success or failure response| A
+    C -->|Returns success or failure response| B
+    D -->|Return whether you booked or not| C
+
+```
+
 # Project funcionalities
 
 developing... 
@@ -46,6 +59,9 @@ developing...
 
 
 
+## Credits
+
+This project was created based on Full Cycle immersion
 
 
 
