@@ -82,7 +82,7 @@ Here are the main commands to manage the project:
       npm run start:dev
     ```
 
-- **Start the partner1 application:**
+- **Start the partner2 application:**
     ```sh
       npm run start:dev -- partner2
     ```
