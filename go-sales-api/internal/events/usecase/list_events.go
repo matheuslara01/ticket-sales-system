@@ -20,7 +20,7 @@ func (uc *ListEventsUseCase) Execute() (*ListEventsOutputDTO, error) {
 		return nil, err
 	}
 
-	eventDTOs := make([]EventDTO, 0, len(events))
+	eventDTOs := make([]EventDTO, len(events))
 	for i, event := range events {
 		eventDTOs[i] = EventDTO{
 			ID:           event.ID,

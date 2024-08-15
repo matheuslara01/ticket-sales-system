@@ -30,7 +30,7 @@ func (uc *ListSpotsUseCase) Execute(input ListSpotsInputDTO) (*ListSpotsOutputDT
 		return nil, err
 	}
 
-	spotDTOs := make([]SpotDTO, 0, len(spots))
+	spotDTOs := make([]SpotDTO, len(spots))
 	for i, spot := range spots {
 		spotDTOs[i] = SpotDTO{
 			ID:       spot.ID,
